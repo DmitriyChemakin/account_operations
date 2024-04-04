@@ -14,14 +14,14 @@ def filter_list(load_file):
     return json_adjective
 
 
-# a = check_list(loading_file('operations.json'))
+
 
 def sorts_date_time(json_adjective):
     """Функция преобразует и возвращает дату и время в нужном формате"""
     json_sort = sorted(json_adjective, key=lambda x: datetime.strptime(x['date'], '%Y-%m-%dT%H:%M:%S.%f'), reverse=True)
     return json_sort
 
-# print(sorts_date_time(filter_list(loading_file('operations.json'))))
+
 
 
 def get_date(date):
@@ -30,7 +30,7 @@ def get_date(date):
     return datetime.strftime(obj_date, '%d.%m.%Y')
 
 
-# print(get_date('2019-12-08T22:46:21.935582'))
+
 
 def get_hide_number(num):
     """Функция преобразует и возвращает номер карты и счета в нужном скрытом формате"""
@@ -41,7 +41,7 @@ def get_hide_number(num):
         card_name = ' '.join(tmp[:-1])
         return card_name + ' ' + tmp[-1][:4] + ' ' + tmp[-1][4:6] + '** **** ' + tmp[-1][-4:]
 
-# print(get_hide_number("Visa Platinum 2241653116508487"))
+
 
 
 def get_money(cash):
@@ -50,6 +50,7 @@ def get_money(cash):
 
 
 def get_main(num_operation=5):
+    """Главная функция, принимает результат предыдущих функций и выводит нужный результат"""
     load_json = loading_file('operations.json')
     fil = filter_list(load_json)
     sort = sorts_date_time(fil)
