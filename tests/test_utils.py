@@ -100,5 +100,4 @@ def test_get_money():
     }) == '48223.05 руб.'
 
 
-def test_get_main():
-    pass
+
